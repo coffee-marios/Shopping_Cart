@@ -1,0 +1,10 @@
+.errorPage {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(193, 240, 166, 0.625);
+}
+
+.danger {
+    color: red;
+}
