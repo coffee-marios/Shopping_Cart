@@ -8,19 +8,43 @@ import Cart from "./pages/Cart";
 import ErrorPage from "./components/error-page";
 import Navbar from "./components/Navbar";
 
-test("renders App with Home route", () => {
-  const router = createMemoryRouter(
-    [
-      {
-        path: "/home",
-        element: <App />,
-        errorElement: <ErrorPage />,
-        children: [{ index: true, element: <Home /> }],
-      },
-    ],
-    { initialEntries: ["/home"] }
-  );
+describe("App routing", () => {
+  test("renders App with Home route", () => {
+    const router = createMemoryRouter(
+      [
+        {
+          path: "/",
+          element: <App />,
+          errorElement: <ErrorPage />,
+          children: [
+            { index: true, element: <Home /> },
+            { path: "shop", element: <div>Shop</div> },
+          ],
+        },
+      ],
+      { initialEntries: ["/"] }
+    );
 
-  render(<RouterProvider router={router} />);
-  expect(screen.getByText(/WELCOME/i)).toBeInTheDocument();
+    render(<RouterProvider router={router} />);
+    expect(screen.getByText(/WELCOME/i)).toBeInTheDocument();
+  });
+
+  test("renders shop at /shop", () => {
+    const router = createMemoryRouter(
+      [
+        {
+          path: "/",
+          element: <App />,
+          errorElement: <ErrorPage />,
+          children: [
+            { index: true, element: <Home /> },
+            { path: "shop", element: <div>Shop</div> },
+          ],
+        },
+      ],
+      { initialEntries: ["/shop"] }
+    );
+    render(<RouterProvider router={router} />);
+    screen.getByRole("link", { name: /shop/i });
+  });
 });
