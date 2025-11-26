@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
+import { loadProducts } from "./loadProducts";
 
 import { createRoutesFromElements, Route } from "react-router-dom";
 
@@ -15,7 +16,12 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<ErrorPage />}>
       <Route index element={<Home />} />
-      <Route path="shop" element={<Shop />} errorElement={<ErrorShop />} />
+      <Route
+        path="shop"
+        element={<Shop />}
+        loader={loadProducts}
+        errorElement={<ErrorShop />}
+      />
       <Route path="cart" element={<Cart />} />
     </Route>
   )
