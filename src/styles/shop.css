@@ -1,0 +1,26 @@
+.shop {
+    background-color: rgb(112, 17, 17);
+    padding: 2rem;
+    color: black;
+    text-align: center;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    margin: 3rem;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+.product-item {
+    border: 2px green solid;
+    padding: 20px;
+    background-color: bisque;
+    text-align: center;
+
+}

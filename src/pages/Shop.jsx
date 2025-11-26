@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import "../styles/shop.css";
+
 export default function Shop() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -24,14 +26,17 @@ export default function Shop() {
   console.log("nest", data);
 
   return (
-    <div>
+    <div className="shop">
       <h1>WELCOME Shop</h1>
-      <div>
+      <div className="products">
         {data.map((d) => (
-          <div key={d.id}>
-            <p>{d.id}</p>
+          <div className="product-item" key={d.id}>
             <img src={d.image} alt="product" />
+            <br />
             <p>{d.title}</p>
+            <br />
+            <p>$ {d.price}</p>
+            <br />
           </div>
         ))}
       </div>
