@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import ErrorPage from "./components/error-page";
+import ErrorShop from "./components/error-shop";
+
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -13,7 +15,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<ErrorPage />}>
       <Route index element={<Home />} />
-      <Route path="shop" element={<Shop />} />
+      <Route path="shop" element={<Shop />} errorElement={<ErrorShop />} />
       <Route path="cart" element={<Cart />} />
     </Route>
   )
