@@ -2,6 +2,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import "../styles/shop.css";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 function Card({ id, source, title, price, sendData }) {
   const [quantity, setQuantity] = useState(1);
@@ -32,6 +33,9 @@ function Card({ id, source, title, price, sendData }) {
 
 export default function Shop() {
   const products = useLoaderData();
+  const { setOpenOrder } = useOutletContext();
+  const { open_order } = useOutletContext();
+
   const orders = {};
   const handleClick = (data) => {
     const quantity = data.quantity;
@@ -39,6 +43,8 @@ export default function Shop() {
     const name = data.name;
     orders[data.product_id] = { price: price, quantity: quantity, name: name };
     console.log(orders);
+    console.log(open_order);
+    setOpenOrder(true);
   };
 
   console.log("nest", { products });

@@ -3,7 +3,7 @@
 
     display: flex;
     padding: 8px;
-    background-color: rgb(45, 189, 141);
+    background-color: rgb(21, 23, 93);
     justify-content: flex-end;
     gap: 12px;
     width: 100%;
@@ -12,5 +12,11 @@
 .linkButton {
     background-color: brown;
     color: blanchedalmond;
+    padding: 5px;
+}
+
+.orderOpen {
+    background-color: chartreuse;
+    color: rgb(13, 9, 2);
     padding: 5px;
 }

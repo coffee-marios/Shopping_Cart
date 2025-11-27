@@ -5,16 +5,16 @@ import Navbar from "./components/Navbar";
 import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [open_order, setOpenOrder] = useState(false);
 
   return (
     <div>
       <div>
-        <Navbar />
+        <Navbar open_order={open_order} />
       </div>
 
       <main>
-        <Outlet />
+        <Outlet context={{ open_order, setOpenOrder }} />
       </main>
     </div>
   );
