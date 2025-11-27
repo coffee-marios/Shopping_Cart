@@ -1,5 +1,5 @@
 export async function loadProducts() {
-  const response = await fetch("https://fakestoreapi.com/products99");
+  const response = await fetch("https://fakestoreapi.com/products");
   if (!response.ok) {
     throw new Response("Failed to find products", {
       status: 404,
