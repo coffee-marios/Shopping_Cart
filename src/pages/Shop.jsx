@@ -6,12 +6,14 @@ import { useOutletContext } from "react-router-dom";
 
 function Card({ id, source, title, price, sendData }) {
   const [quantity, setQuantity] = useState(1);
+  const [isActive, setIsActive] = useState(false);
   const onChange = (event) => {
     setQuantity(event.target.value);
   };
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsActive(true);
     sendData({
       id: id,
       source: source,
@@ -22,7 +24,7 @@ function Card({ id, source, title, price, sendData }) {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className={isActive ? "active" : "inactive"}>
         <img src={source} alt="product" />
         <p>{title}</p>
         <p>{price}</p>

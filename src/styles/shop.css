@@ -31,3 +31,13 @@ img {
     text-align: center;
 
 }
+
+.active {
+    border: 2px green solid;
+    padding: 20px;
+}
+
+.inactive {
+    border: 1px pink solid;
+    padding: 10px;
+}
