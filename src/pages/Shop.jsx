@@ -9,51 +9,67 @@ function Card({ id, source, title, price, sendData }) {
   const onChange = (event) => {
     setQuantity(event.target.value);
   };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    sendData({
+      id: id,
+      source: source,
+      title: title,
+      price: price,
+      quantity: quantity,
+    });
+  }
   return (
-    <div>
-      <img src={source} alt="product" />
-      <p>{title}</p>
-      <p>{price}</p>
-      <input value={quantity} onChange={onChange} />
-      <button
-        onClick={() =>
-          sendData({
-            product_id: id,
-            name: { title },
-            price: price,
-            quantity: quantity,
-          })
-        }
-      >
-        Add to cart
-      </button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <img src={source} alt="product" />
+        <p>{title}</p>
+        <p>{price}</p>
+        <input type="number" value={quantity} onChange={onChange} />
+        <button type="submit">Add to cart</button>
+      </div>
+    </form>
   );
 }
 
 export default function Shop() {
   const products = useLoaderData();
   const { setOpenOrder } = useOutletContext();
-  const { open_order } = useOutletContext();
+  const { orders } = useOutletContext();
+  const { setOrders } = useOutletContext();
 
-  const orders = {};
   const handleClick = (data) => {
+    console.log("PARENT", data);
+
+    const id = data.id;
     const quantity = data.quantity;
     const price = data.price;
-    const name = data.name;
-    orders[data.product_id] = { price: price, quantity: quantity, name: name };
-    console.log(orders);
-    console.log(open_order);
+    const title = data.title;
+    const new_order = {
+      id: id,
+      price: price,
+      quantity: quantity,
+      title: title,
+    };
+    console.log(new_order);
+    setOrders({ ...orders, [new_order.id]: new_order });
+
     setOpenOrder(true);
+    console.log("ORDERS", orders);
+    Object.keys(orders).map((key) => {
+      console.log("key", orders[key]["name"]);
+
+      console.log("name", orders[key]["quantity"]);
+    });
   };
 
-  console.log("nest", { products });
+  // console.log("nest", { products });
 
   return (
     <div className="shop">
       <h1>WELCOME Shop</h1>
 
-      {/* {error !== null && <div> {error} </div>} */}
       <div className="products">
         {products.map((d) => (
           <div className="product-item" key={d.id}>

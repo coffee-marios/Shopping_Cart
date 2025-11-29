@@ -6,6 +6,7 @@ import React from "react";
 
 function App() {
   const [open_order, setOpenOrder] = useState(false);
+  const [orders, setOrders] = useState({});
 
   return (
     <div>
@@ -14,7 +15,7 @@ function App() {
       </div>
 
       <main>
-        <Outlet context={{ open_order, setOpenOrder }} />
+        <Outlet context={{ open_order, setOpenOrder, orders, setOrders }} />
       </main>
     </div>
   );
