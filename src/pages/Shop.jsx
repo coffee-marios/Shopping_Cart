@@ -59,11 +59,6 @@ export default function Shop() {
 
     setOpenOrder(true);
     console.log("ORDERS", orders);
-    Object.keys(orders).map((key) => {
-      console.log("key", orders[key]["name"]);
-
-      console.log("name", orders[key]["quantity"]);
-    });
   };
 
   // console.log("nest", { products });
