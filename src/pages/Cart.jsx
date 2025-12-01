@@ -10,6 +10,7 @@ const Order_table = () => {
     console.log(copyOrders);
     delete copyOrders[id];
     setOrders(copyOrders);
+    localStorage.removeItem(id);
   };
 
   return (
