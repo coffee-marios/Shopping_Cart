@@ -18,6 +18,10 @@ tbody {
     background-color: bisque;
 }
 
+tfoot {
+    background-color: rgb(254, 235, 211);
+}
+
 th,
 td {
     border: 1px solid rgb(160 160 160);

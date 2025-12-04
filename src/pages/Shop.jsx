@@ -1,7 +1,7 @@
 // import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "../styles/shop.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function Card({ id, source, title, price, sendData }) {
@@ -11,23 +11,23 @@ function Card({ id, source, title, price, sendData }) {
     return saved ? JSON.parse(saved) : false;
   });
 
-  useEffect(() => {
-    localStorage.setItem(id, JSON.stringify(isActive));
-  }, [isActive, id]);
-
   const onChange = (event) => {
     setQuantity(event.target.value);
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsActive(true);
-    sendData({
+    const order_storage = {
       id: id,
       source: source,
       title: title,
       price: price,
       quantity: quantity,
+    };
+    setIsActive(true);
+    localStorage.setItem(id, JSON.stringify(order_storage));
+    sendData({
+      order_storage,
     });
   }
   return (
