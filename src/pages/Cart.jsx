@@ -4,27 +4,15 @@ import "../styles/cart.css";
 const Order_table = () => {
   const { setOrders } = useOutletContext();
 
-  const { orders } = useOutletContext();
-
   const order_keys = Object.keys(localStorage);
   const myKeys = order_keys.map((key) => localStorage.getItem(key));
 
-  console.log("Wait\n", Object.entries(localStorage));
-  console.log("myKeys", myKeys);
-  const myKeys_parsed = myKeys.map((s) => JSON.parse(s)); //.filter((key) => key !== "false"));
-
-  console.log("my parsed keys\n", myKeys_parsed);
+  const myKeys_parsed = myKeys.map((s) => JSON.parse(s));
 
   const filter_keys = myKeys_parsed.filter(Boolean);
-  console.log("filter keys\n", filter_keys);
-
-  // console.log("myValues", myValues);
 
   const deleteProduct = (id) => {
-    const copyOrders = { ...orders };
-    console.log(copyOrders);
-    delete copyOrders[id];
-    setOrders(copyOrders);
+    setOrders({});
     localStorage.removeItem(id["id"]);
   };
 
@@ -42,9 +30,7 @@ const Order_table = () => {
         </thead>
 
         <tbody>
-          {/* {Object.keys(orders).map((key) => { */}
           {filter_keys.map((item) => {
-            // const item = orders[key];
             console.log("item price", item);
 
             return (

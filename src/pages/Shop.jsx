@@ -46,30 +46,12 @@ function Card({ id, source, title, price, sendData }) {
 export default function Shop() {
   const products = useLoaderData();
   const { setOpenOrder } = useOutletContext();
-  const { orders } = useOutletContext();
-  const { setOrders } = useOutletContext();
+  const { open_order } = useOutletContext();
 
-  const handleClick = (data) => {
-    console.log("PARENT", data);
-
-    const id = data.id;
-    const quantity = data.quantity;
-    const price = data.price;
-    const title = data.title;
-    const new_order = {
-      id: id,
-      price: price,
-      quantity: quantity,
-      title: title,
-    };
-    console.log(new_order);
-    setOrders({ ...orders, [new_order.id]: new_order });
-
+  const handleClick = () => {
     setOpenOrder(true);
-    console.log("ORDERS", orders);
+    console.log("open order", open_order);
   };
-
-  // console.log("nest", { products });
 
   return (
     <div className="shop">
