@@ -3,17 +3,31 @@ import "../styles/cart.css";
 
 const Order_table = () => {
   const { setOrders } = useOutletContext();
+  const { setOpenOrder } = useOutletContext();
 
   const order_keys = Object.keys(localStorage);
+  console.log("keys", order_keys);
   const myKeys = order_keys.map((key) => localStorage.getItem(key));
+  console.log("keys map", myKeys);
 
   const myKeys_parsed = myKeys.map((s) => JSON.parse(s));
+  console.log("parsed", myKeys_parsed);
 
   const filter_keys = myKeys_parsed.filter(Boolean);
+  console.log("filter_keys", filter_keys);
 
+  const sum_order = filter_keys.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.price * currentValue.quantity,
+    0
+  );
+  console.log("sum", sum_order);
   const deleteProduct = (id) => {
     setOrders({});
     localStorage.removeItem(id["id"]);
+    if (localStorage.length == 0) {
+      setOpenOrder(false);
+    }
   };
 
   return (
@@ -50,7 +64,7 @@ const Order_table = () => {
         <tfoot>
           <tr>
             <th colSpan="3" scope="row"></th>
-            <td>21,000</td>
+            <td>{sum_order}</td>
             <td>
               <button>Buy</button>
             </td>

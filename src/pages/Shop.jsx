@@ -26,6 +26,8 @@ function Card({ id, source, title, price, sendData }) {
     };
     setIsActive(true);
     localStorage.setItem(id, JSON.stringify(order_storage));
+    const dkeys = JSON.parse(localStorage.getItem("cart_ready"));
+    console.log("dkeys", dkeys);
     sendData({
       order_storage,
     });
@@ -50,6 +52,7 @@ export default function Shop() {
 
   const handleClick = () => {
     setOpenOrder(true);
+    console.log("storage items: ", localStorage.length);
     console.log("open order", open_order);
   };
 

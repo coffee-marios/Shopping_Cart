@@ -5,8 +5,12 @@ import Navbar from "./components/Navbar";
 import React from "react";
 
 function App() {
-  const [open_order, setOpenOrder] = useState(false);
-  const [orders, setOrders] = useState({});
+  const [open_order, setOpenOrder] = useState(() => {
+    return false;
+  });
+  const [orders, setOrders] = useState({}); // dummy because changes in localStorage don't re-render the page
+
+  //localStorage.setItem("cart_ready", false);
 
   return (
     <div>
