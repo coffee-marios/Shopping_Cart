@@ -10,8 +10,6 @@ function App() {
   });
   const [orders, setOrders] = useState({}); // dummy because changes in localStorage don't re-render the page
 
-  //localStorage.setItem("cart_ready", false);
-
   return (
     <div>
       <div>

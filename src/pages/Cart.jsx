@@ -30,6 +30,14 @@ const Order_table = () => {
     }
   };
 
+  if (sum_order == 0) {
+    return (
+      <div className="empty_card">
+        <p>Your order will appear here.</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <table>
