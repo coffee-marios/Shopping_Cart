@@ -58,7 +58,7 @@ export default function Shop() {
 
   return (
     <div className="shop">
-      <h1>WELCOME Shop</h1>
+      <h1>LINEUP</h1>
 
       <div className="products">
         {products.map((d) => (

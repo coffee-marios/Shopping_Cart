@@ -1,0 +1,37 @@
+.title-shop {
+    margin: 3rem;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aquamarine;
+}
+
+.title-shop>a {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+}
+
+.title-shop>a:hover {
+    color: aqua;
+}
+
+
+
+.image-container {
+    border: 2px white solid;
+    width: fit-content;
+    margin: auto;
+}
+
+.image-container:hover {
+    border: 5px greenyellow solid;
+    background-color: blue;
+
+}
+
+
+
+.firstPage {
+    width: fit-content;
+    margin: 12px;
+}

@@ -27,7 +27,7 @@ img {
 .product-item {
     border: 2px green solid;
     padding: 20px;
-    background-color: bisque;
+    background-color: rgb(230, 193, 43);
     text-align: center;
 
 }
@@ -38,6 +38,16 @@ img {
 }
 
 .inactive {
-    border: 1px pink solid;
+    border: 1px rgb(57, 57, 255) solid;
     padding: 10px;
+}
+
+
+input {
+    text-align: center;
+    padding: 9px;
+    font-size: 1rem;
+    background-color: rgba(236, 247, 247, 0.283);
+    color: black;
+
 }

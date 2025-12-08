@@ -8,14 +8,15 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
-import { loadProducts } from "./loadProducts";
+import { loadProducts } from "./pages/loadProducts";
+import { loadOne } from "./pages/loadOne";
 
 import { createRoutesFromElements, Route } from "react-router-dom";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<ErrorPage />}>
-      <Route index element={<Home />} />
+      <Route index element={<Home />} loader={loadOne} />
       <Route
         path="shop"
         element={<Shop />}
