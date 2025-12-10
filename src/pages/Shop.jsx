@@ -24,6 +24,7 @@ function Card({ id, source, title, price, sendData }) {
       price: price,
       quantity: quantity,
     };
+
     setIsActive(true);
     localStorage.setItem(id, JSON.stringify(order_storage));
     const dkeys = JSON.parse(localStorage.getItem("cart_ready"));
@@ -36,9 +37,17 @@ function Card({ id, source, title, price, sendData }) {
     <form onSubmit={handleSubmit}>
       <div className={isActive ? "active" : "inactive"}>
         <img src={source} alt="product" />
+        <br />
         <p>{title}</p>
-        <p>{price}</p>
-        <input type="number" value={quantity} onChange={onChange} />
+        <br />
+        <p>{price} EUR</p>
+        <input
+          min={1}
+          max={5}
+          type="number"
+          value={quantity}
+          onChange={onChange}
+        />
         <button type="submit">Add to cart</button>
       </div>
     </form>
@@ -59,6 +68,7 @@ export default function Shop() {
   return (
     <div className="shop">
       <h1>LINEUP</h1>
+      <br />
 
       <div className="products">
         {products.map((d) => (

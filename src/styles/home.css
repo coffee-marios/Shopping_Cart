@@ -1,14 +1,15 @@
 .title-shop {
     margin: 3rem;
-    font-size: 2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: aquamarine;
 }
 
 .title-shop>a {
-    font-size: inherit;
-    font-family: inherit;
+
     color: inherit;
+    letter-spacing: 5px;
+    font-weight: lighter;
+
 }
 
 .title-shop>a:hover {

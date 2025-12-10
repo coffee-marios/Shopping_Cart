@@ -40,13 +40,16 @@ const Order_table = () => {
 
   return (
     <div>
+      <br />
+      <p>Your order is ready.</p>
+      <br />
       <table>
         <thead>
           <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Qty</th>
-            <th>Price</th>
+            <th>Price (EUR)</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -86,8 +89,6 @@ const Order_table = () => {
 export default function Cart() {
   return (
     <div className="cart">
-      <h1>WELCOME Cart</h1>
-
       <Order_table />
     </div>
   );
