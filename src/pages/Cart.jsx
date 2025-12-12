@@ -23,11 +23,11 @@ const Order_table = () => {
   );
   console.log("sum", sum_order);
   const deleteProduct = (id) => {
-    setOrders({});
     localStorage.removeItem(id["id"]);
     if (localStorage.length == 0) {
       setOpenOrder(false);
     }
+    setOrders(localStorage.length);
   };
 
   if (sum_order == 0) {

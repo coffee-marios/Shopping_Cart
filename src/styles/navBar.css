@@ -34,3 +34,12 @@
     color: rgb(13, 9, 2);
 
 }
+
+.underNumber {
+    z-index: 10;
+    top: 20px;
+    left: 20px;
+    font-size: 10px;
+    color: white;
+    background-color: rgb(50, 100, 0);
+}

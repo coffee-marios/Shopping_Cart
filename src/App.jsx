@@ -8,12 +8,14 @@ function App() {
   const [open_order, setOpenOrder] = useState(() => {
     return false;
   });
-  const [orders, setOrders] = useState({}); // dummy because changes in localStorage don't re-render the page
+  const [orders, setOrders] = useState(() => {
+    return localStorage.length;
+  }); // dummy because changes in localStorage don't re-render the page
 
   return (
     <div>
       <div>
-        <Navbar open_order={open_order} />
+        <Navbar open_order={open_order} orders={orders} />
       </div>
 
       <main>

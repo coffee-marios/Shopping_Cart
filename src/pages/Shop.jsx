@@ -58,9 +58,11 @@ export default function Shop() {
   const products = useLoaderData();
   const { setOpenOrder } = useOutletContext();
   const { open_order } = useOutletContext();
+  const { setOrders } = useOutletContext();
 
   const handleClick = () => {
     setOpenOrder(true);
+    setOrders(localStorage.length);
     console.log("storage items: ", localStorage.length);
     console.log("open order", open_order);
   };
