@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "../styles/navBar.css";
+import homeIcon from "../assets/home.svg";
+import shopIcon from "../assets/bag.svg";
+import cartIcon from "../assets/shopping-cart.svg";
 
 export default function Navbar({ open_order, orders }) {
   return (
@@ -8,13 +11,13 @@ export default function Navbar({ open_order, orders }) {
         to="/"
         className={({ isActive }) => (isActive ? "active-link" : "linkButton")}
       >
-        <img src="src/assets/home.svg" alt="Home" />
+        <img src={homeIcon} alt="Home" />
       </NavLink>
       <NavLink
         to="/shop"
         className={({ isActive }) => (isActive ? "active-link" : "linkButton")}
       >
-        <img src="src/assets/bag.svg" alt="Shop" />
+        <img src={shopIcon} alt="Shop" />
       </NavLink>
       <NavLink
         to="cart"
@@ -23,7 +26,7 @@ export default function Navbar({ open_order, orders }) {
         }
       >
         <div>
-          <img src="src/assets/shopping-cart.svg" alt="Cart" />
+          <img src={cartIcon} alt="Cart" />
           {orders > 0 && <p className="underNumber">{orders}</p>}
         </div>
       </NavLink>
