@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { RouterProvider } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import { BrowserRouter } from "react-router-dom";
 import { prettyDOM } from "@testing-library/dom";
 
@@ -14,9 +14,9 @@ describe("navbar silly test", () => {
     screen.logTestingPlaygroundURL();
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /shop/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /cart/i })).toBeInTheDocument();
 
-    expect(screen.getByText(/home/i)).toBeInTheDocument();
     const { container } = render(
       <BrowserRouter>
         <Navbar />

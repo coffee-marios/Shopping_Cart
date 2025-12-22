@@ -11,19 +11,20 @@ import Navbar from "./components/Navbar";
 import { loadProducts } from "./pages/loadProducts";
 import { loadOne } from "./pages/loadOne";
 
-import { createRoutesFromElements, Route } from "react-router-dom";
+import { createRoutesFromElements, Route, Navigate } from "react-router-dom";
 
-export const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />} errorElement={<ErrorPage />}>
-      <Route index element={<Home />} loader={loadOne} />
-      <Route
-        path="shop"
-        element={<Shop />}
-        loader={loadProducts}
-        errorElement={<ErrorShop />}
-      />
-      <Route path="cart" element={<Cart />} />
-    </Route>
-  )
+export const routesJSX = (
+  <Route path="/" element={<App />} errorElement={<ErrorPage />}>
+    <Route index element={<Home />} loader={loadOne} />
+    <Route path="home" element={<Navigate to="/" replace />} />
+    <Route
+      path="shop"
+      element={<Shop />}
+      loader={loadProducts}
+      errorElement={<ErrorShop />}
+    />
+    <Route path="cart" element={<Cart />} />
+  </Route>
 );
+
+export const router = createBrowserRouter(createRoutesFromElements(routesJSX));

@@ -11,7 +11,7 @@ export default function Navbar({ open_order, orders }) {
         <img src="src/assets/home.svg" alt="Home" />
       </NavLink>
       <NavLink
-        to="/Shop"
+        to="/shop"
         className={({ isActive }) => (isActive ? "active-link" : "linkButton")}
       >
         <img src="src/assets/bag.svg" alt="Shop" />
